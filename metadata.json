@@ -1,0 +1,47 @@
+{
+  "name": "alexharvey-disable_transparent_hugepage",
+  "version": "1.0.0",
+  "author": "Alex Harvey",
+  "summary": "Disables Transparent Hugepages (THP)",
+  "license": "MIT",
+  "source": "https://github.com/alexharv074/puppet-disable_transparent_hugepage",
+  "project_page": "http://github.com/alexharv074/puppet-disable_transparent_hugepage",
+  "issues_url": "https://github.com/alexharv074/puppet-disable_transparent_hugepage/issues",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "12.04",
+        "14.04"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "pe",
+      "version_requirement": ">= 3.0.0 < 2015.4.0"
+    },
+    {
+      "name": "puppet",
+      "version_requirement": ">= 3.0.0 < 5.0.0"
+    }
+  ],
+  "dependencies": [
+  ]
+}
