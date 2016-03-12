@@ -32,7 +32,7 @@ class disable_transparent_hugepage (
   }
 
   if ($::osfamily == 'RedHat') and
-     ($::operatingsystemmajrelease >= 6) {
+     (versioncmp($::operatingsystemmajrelease, '6') >= 0) {
 
     file { '/etc/tuned/custom':
       ensure => directory,
