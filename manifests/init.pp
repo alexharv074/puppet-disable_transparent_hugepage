@@ -17,15 +17,15 @@ class disable_transparent_hugepage (
     fail("service_provider can only be set to 'redhat'")
   }
 
-  file { '/etc/init.d/disable-transparent-hugepages':
+  file { '/etc/init.d/disable-transparent-hugepage':
     ensure  => file,
     owner   => 'root',
     group   => 'root',
     mode    => '0755',
-    content => template("${module_name}/disable-transparent-hugepages.erb"),
+    content => template("${module_name}/disable-transparent-hugepage.erb"),
   }
 
-  service { 'disable-transparent-hugepages':
+  service { 'disable-transparent-hugepage':
     ensure   => running,
     enable   => true,
     provider => $service_provider,
