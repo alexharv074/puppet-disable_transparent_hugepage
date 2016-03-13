@@ -1,3 +1,6 @@
+2016-03-13 - Version 1.0.2
+- Rename hugepages for interface consistency.
+
 2016-03-13 - Version 1.0.1
 - Fix version compare bug.
 
