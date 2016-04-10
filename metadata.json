@@ -1,6 +1,6 @@
 {
   "name": "alexharvey-disable_transparent_hugepage",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "author": "Alex Harvey",
   "summary": "Disables Transparent Hugepages (THP)",
   "license": "MIT",
@@ -25,8 +25,17 @@
       ]
     },
     {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "6",
+        "7",
+        "8"
+      ]
+    },
+    {
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
+        "10.04",
         "12.04",
         "14.04"
       ]

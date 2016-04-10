@@ -1,3 +1,8 @@
+2016-04-11 - Version 1.1.0
+- Fix ordering bug.
+- Add Beaker tests and nodesets for Ubuntu,
+  CentOS & Debian.
+
 2016-03-15 - Version 1.0.3
 - Make Forge's Lint happy.
 
