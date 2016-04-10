@@ -31,6 +31,8 @@ class disable_transparent_hugepage (
     provider => $service_provider,
   }
 
+  File['/etc/init.d/disable-transparent-hugepage'] -> Service['disable-transparent-hugepage']
+
   if ($::osfamily == 'RedHat') and
     (versioncmp($::operatingsystemmajrelease, '6') >= 0) {
 
