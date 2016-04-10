@@ -41,8 +41,15 @@ Install the necessary gems:
 
     bundle install
 
-Note that gems are installed in `.gems` and binaries in `.bin`.  See `.bundle/config`.
-
 To run the tests from the root of the source code:
 
     bundle exec rake spec
+
+To run the acceptance tests:
+
+To run the acceptance tests:
+
+    RS_SET=centos-66-x64 bundle exec rake spec/acceptance
+    RS_SET=centos-72-x64 bundle exec rake spec/acceptance
+
+etc.
