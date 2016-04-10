@@ -31,7 +31,9 @@ class disable_transparent_hugepage (
     provider => $service_provider,
   }
 
-  File['/etc/init.d/disable-transparent-hugepage'] -> Service['disable-transparent-hugepage']
+  File['/etc/init.d/disable-transparent-hugepage']
+  ->
+  Service['disable-transparent-hugepage']
 
   if ($::osfamily == 'RedHat') and
     (versioncmp($::operatingsystemmajrelease, '6') >= 0) {
@@ -50,6 +52,8 @@ class disable_transparent_hugepage (
       unless  => '/sbin/tuned-adm active | grep -q "custom"',
     }
 
-    File['/etc/tuned/custom/tuned.conf'] -> Exec['enable-tuned-profile']
+    File['/etc/tuned/custom/tuned.conf']
+    ->
+    Exec['enable-tuned-profile']
   }
 }
