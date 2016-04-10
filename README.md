@@ -1,5 +1,7 @@
 # disable_transparent_hugepage
 
+[![Build Status](https://img.shields.io/travis/alexharv074/puppet-disable_transparent_hugepage.svg)](https://travis-ci.org/alexharv074/puppet-disable_transparent_hugepage)
+
 ##Overview
 
 This module disables Transparent Hugepages (THP) on Linux platforms as required by applications such as MongoDB and Redis.  The procedure is based on recommendations published at [mongodb.org](https://docs.mongodb.org/manual/tutorial/transparent-huge-pages/).
