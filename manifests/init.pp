@@ -47,13 +47,14 @@ class disable_transparent_hugepage (
       content => template("${module_name}/tuned.conf.erb"),
     }
 
-    exec { 'enable-tuned-profile':
-      command => '/sbin/tuned-adm profile custom',
-      unless  => '/sbin/tuned-adm active | grep -q "custom"',
-    }
+    if $::tuned_active_profile != 'custom' {
+      exec { 'enable-tuned-profile':
+        command => '/sbin/tuned-adm profile custom',
+      }
 
-    File['/etc/tuned/custom/tuned.conf']
-    ->
-    Exec['enable-tuned-profile']
+      File['/etc/tuned/custom/tuned.conf']
+      ->
+      Exec['enable-tuned-profile']
+    }
   }
 }
