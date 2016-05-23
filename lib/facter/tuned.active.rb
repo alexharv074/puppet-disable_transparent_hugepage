@@ -1,7 +1,7 @@
 require 'facter'
 
 def get_active_profile
-  active_profile = ""
+  active_profile = ''
   begin
     if File.file?('/etc/tuned/active_profile') then
       active_profile = File.read('/etc/tuned/active_profile').chomp
