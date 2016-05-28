@@ -18,13 +18,17 @@ include disable_transparent_hugepage
 
 ##Known issues
 
-As a result of Puppet bug [PUP-5296](https://tickets.puppetlabs.com/browse/PUP-5296) (fixed in Puppet 4.5.0) it will be necessary for affected users to set the service provider to 'redhat'.  To do that pass the `service_provider` parameter:
+This module has not been designed to interact with any of the known `tuned` modules and it could cause problems.  The assumption is that your provisioning system delivered a default `tuned` config, and this module adds a custom profile.
+
+Also, as a result of Puppet bug [PUP-5296](https://tickets.puppetlabs.com/browse/PUP-5296) (fixed in Puppet 4.5.0) it will be necessary for affected users to set the service provider to 'redhat'.  To do that pass the `service_provider` parameter:
 
 ```puppet
 class { 'disable_transparent_hugepage':
   service_provider => 'redhat',
 }
 ```
+
+This feature has been deprecated now, and will be removed soon.  See Issue #1.
 
 ##Development
 
