@@ -13,6 +13,9 @@
 class disable_transparent_hugepage (
   $service_provider = undef,
 ) {
+  if $service_provider {
+    warning('The service_provider feature is deprecated and will be removed soon, see Issue #3')
+  }
   if $service_provider and ! $service_provider == 'redhat' {
     fail("service_provider can only be set to 'redhat'")
   }
@@ -36,7 +39,7 @@ class disable_transparent_hugepage (
   Service['disable-transparent-hugepage']
 
   if ($::osfamily == 'RedHat') and
-    (versioncmp($::operatingsystemmajrelease, '6') >= 0) {
+     (versioncmp($::operatingsystemmajrelease, '6') >= 0) {
 
     file { '/etc/tuned/custom':
       ensure => directory,
