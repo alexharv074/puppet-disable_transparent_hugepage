@@ -1,3 +1,8 @@
+2016-05-28 - Version 1.2.0
+- additional test
+- deprecation notice on service_provider
+- improved Gemfile & Rakefile
+
 2016-04-11 - Version 1.1.1
 - Make lint happy.
 - Add .travis.yml.
