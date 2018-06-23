@@ -1,7 +1,13 @@
+# THIS FILE IS CENTRALLY MANAGED BY sync_spec.rb!
+# DO NOT EDIT IT HERE!
+
 source 'https://rubygems.org'
 
 group :tests do
   gem 'puppetlabs_spec_helper', :require => false
+  gem 'rspec-puppet-utils', :require => false
+  gem 'metadata-json-lint', :require => false
+  gem 'puppet-blacksmith',  :require => false
 end
 
 group :system_tests do
