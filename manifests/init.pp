@@ -3,22 +3,7 @@
 # Disables transparent hugepage according to documentation from
 # https://docs.mongodb.org/manual/tutorial/transparent-huge-pages/
 #
-# === Parameters
-#
-# [*service_provider*]
-#   A feature provided as a workaround to puppet bug PUP-5296.  Defaults to
-#   undef.  You need to specify service_provider 'redhat' on RedHat/CentOS 7
-#   if you are affected by PUP-5296.
-#
-class disable_transparent_hugepage (
-  $service_provider = undef,
-) {
-  if $service_provider {
-    warning('The service_provider feature is deprecated and will be removed soon, see Issue #3')
-  }
-  if $service_provider and ! $service_provider == 'redhat' {
-    fail("service_provider can only be set to 'redhat'")
-  }
+class disable_transparent_hugepage {
 
   file { '/etc/init.d/disable-transparent-hugepage':
     ensure  => file,
@@ -31,7 +16,6 @@ class disable_transparent_hugepage (
   service { 'disable-transparent-hugepage':
     ensure   => running,
     enable   => true,
-    provider => $service_provider,
   }
 
   File['/etc/init.d/disable-transparent-hugepage']
