@@ -1,10 +1,14 @@
+2018-06-23 - Version 1.3.0
+- Update Rspec boilerplate.
+- Remove deprecated service_provider feature.
+
 2016-05-28 - Version 1.2.1
-- Make Forge's Lint happy. Again
+- Make Forge's Lint happy. Again.
 
 2016-05-28 - Version 1.2.0
-- additional test
-- deprecation notice on service_provider
-- improved Gemfile & Rakefile
+- additional test.
+- deprecation notice on service_provider.
+- improved Gemfile & Rakefile.
 
 2016-04-11 - Version 1.1.1
 - Make lint happy.

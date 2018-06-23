@@ -1,6 +1,6 @@
 {
   "name": "alexharvey-disable_transparent_hugepage",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "author": "Alex Harvey",
   "summary": "Disables Transparent Hugepages (THP)",
   "license": "MIT",
@@ -43,12 +43,8 @@
   ],
   "requirements": [
     {
-      "name": "pe",
-      "version_requirement": ">= 3.0.0 < 2015.4.0"
-    },
-    {
       "name": "puppet",
-      "version_requirement": ">= 3.0.0 < 5.0.0"
+      "version_requirement": ">= 3.0.0 < 6.0.0"
     }
   ],
   "dependencies": [
