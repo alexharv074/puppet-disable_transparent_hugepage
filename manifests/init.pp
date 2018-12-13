@@ -1,7 +1,9 @@
-# == Class: disable_transparent_hugepage
+# @summary Disables transparent hugepage according to MongoDB project.
 #
-# Disables transparent hugepage according to documentation from
-# https://docs.mongodb.org/manual/tutorial/transparent-huge-pages/
+# @example Basic usage
+#   include disable_transparent_hugepage
+#
+# @see https://docs.mongodb.org/manual/tutorial/transparent-huge-pages/
 #
 class disable_transparent_hugepage {
 
