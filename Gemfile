@@ -8,6 +8,8 @@ group :tests do
   gem 'rspec-puppet-utils', :require => false
   gem 'metadata-json-lint', :require => false
   gem 'puppet-blacksmith',  :require => false
+  gem 'puppet-strings',  :require => false
+  gem 'CFPropertyList',  :require => false
 end
 
 group :system_tests do
@@ -15,8 +17,6 @@ group :system_tests do
   gem 'beaker-rspec', :require => false
   gem 'beaker-puppet_install_helper', :require => false
 end
-
-gem 'facter'
 
 if puppetversion = ENV['PUPPET_GEM_VERSION']
   gem 'puppet', puppetversion, :require => false
