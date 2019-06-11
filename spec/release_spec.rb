@@ -14,8 +14,4 @@ describe 'Release-related checks' do
   it 'First line of CHANGELOG should mention the version' do
     expect(%x{head -1 CHANGELOG}).to match /#{version}/
   end
-
-  it 'README should mention the version' do
-    expect(%x{grep ^#{version} README.md}).to match /#{version}\|\d+\.\d+\.\d+/
-  end
 end
