@@ -51,7 +51,26 @@ bundle exec rake spec
 
 To run the acceptance tests:
 
-To run the acceptance tests:
+Puppet 6.4.2:
+
+~~~ text
+export BEAKER_PUPPET_COLLECTION=puppet6
+export BEAKER_PUPPET_INSTALL_VERSION=6.4.2
+~~~
+
+Puppet 5.5.1:
+
+~~~ text
+export BEAKER_PUPPET_COLLECTION=puppet5
+export BEAKER_PUPPET_INSTALL_VERSION=5.5.1
+~~~
+
+Then:
+
+~~~ text
+ipaddr=$(ifconfig en0 | awk '$1 == "inet" {print $2}')
+export BEAKER_PACKAGE_PROXY=http://${ipaddr}:3128/
+~~~
 
 ~~~ text
 BEAKER_set=centos-66-x64 bundle exec rake spec/acceptance
