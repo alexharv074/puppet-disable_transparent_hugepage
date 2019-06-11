@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 ### BEGIN INIT INFO
-# Provides:          disable-transparent-hugepage
+# Provides:          disable-transparent-hugepages
 # Required-Start:    $local_fs
 # Required-Stop:
 # X-Start-Before:    mongod mongodb-mms-automation-agent
@@ -18,25 +18,23 @@ case $1 in
     elif [ -d /sys/kernel/mm/redhat_transparent_hugepage ]; then
       thp_path=/sys/kernel/mm/redhat_transparent_hugepage
     else
-      exit 0
+      return 0
     fi
 
     echo 'never' > ${thp_path}/enabled
     echo 'never' > ${thp_path}/defrag
 
+    re='^[0-1]+$'
+    if [[ $(cat ${thp_path}/khugepaged/defrag) =~ $re ]]
+    then
+      # RHEL 7
+      echo 0  > ${thp_path}/khugepaged/defrag
+    else
+      # RHEL 6
+      echo 'no' > ${thp_path}/khugepaged/defrag
+    fi
+
+    unset re
     unset thp_path
     ;;
-
-  stop)
-    exit 0
-    ;;
-
-  status)
-    exit 0
-    ;;
-
-  restart)
-    exit 0
-    ;;
-
 esac
