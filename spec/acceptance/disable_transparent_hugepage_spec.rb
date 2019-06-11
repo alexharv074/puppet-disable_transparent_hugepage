@@ -2,15 +2,7 @@ require 'spec_helper_acceptance'
 
 describe 'disable_transparent_hugepage' do
   it 'should apply and be idempotent' do
-    if os[:family] == 'redhat' and os[:release].to_f >= 7
-      pp = <<EOS
-class { 'disable_transparent_hugepage':
-  service_provider => 'redhat',
-}
-EOS
-    else
-      pp = 'include disable_transparent_hugepage'
-    end
+    pp = 'include disable_transparent_hugepage'
     
     apply_manifest pp, :catch_failures => true
     expect(apply_manifest(pp, :catch_failures => true).exit_code).to be_zero
