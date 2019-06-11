@@ -40,8 +40,9 @@ class disable_transparent_hugepage {
     }
 
     exec { 'enable-tuned-profile':
-      command => '/sbin/tuned-adm profile custom',
-      unless  => '/sbin/tuned-adm active | grep -q "custom"',
+      command => 'tuned-adm profile custom',
+      unless  => 'tuned-adm active | grep -q custom',
+      path    => '/sbin:/usr/bin',
     }
 
     File['/etc/tuned/custom/tuned.conf']
