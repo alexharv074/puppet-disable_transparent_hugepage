@@ -9,10 +9,10 @@ describe 'disable_transparent_hugepage' do
   end
 
   describe command('cat /sys/kernel/mm/*transparent_hugepage/enabled') do
-    its(:stdout) { is_expected.to match /never/ }
+    its(:stdout) { should match /never/ }
   end
 
   describe command('cat /sys/kernel/mm/*transparent_hugepage/defrag') do
-    its(:stdout) { is_expected.to match /never/ }
+    its(:stdout) { should match /never/ }
   end
 end
