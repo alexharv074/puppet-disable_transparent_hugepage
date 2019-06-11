@@ -10,11 +10,12 @@
 2. [Usage](#usage)
 3. [Development](#development)
     * [Testing](#testing)
+    * [Note about CentOS 6](#note-about-centos-6)
     * [Release](#release)
 
 ## Overview
 
-This module disables Transparent Hugepages (THP) on Linux platforms as required by applications such as MongoDB and Redis.  The procedure is based on recommendations published at [mongodb.org](https://docs.mongodb.org/manual/tutorial/transparent-huge-pages/).
+This module disables Transparent Hugepages (THP) on Linux platforms as required by applications such as MongoDB and Redis. The procedure is based on recommendations published at [mongodb.org](https://docs.mongodb.org/manual/tutorial/transparent-huge-pages/).
 
 The module changes the `/sys/kernel/mm/transparent_hugepage/enabled` and `/sys/kernel/mm/transparent_hugepage/defrag` settings, adds an init service to ensure the changes persist across reboots, and if applicable, configures tuned.
 
@@ -78,6 +79,22 @@ BEAKER_set=centos-72-x64 bundle exec rake spec/acceptance
 ~~~
 
 etc.
+
+### Note about CentOS 6
+
+At the time of writing (11 June 2019) I found that Beaker 4 failed
+to install Puppet if I set the `$BEAKER_PACKAGE_PROXY` variable,
+with this message:
+
+```text
+centos-66-x64 15:56:56$ rpm --replacepkgs -Uvh http://yum.puppet.com/puppet6-release-el-6.noarch.rpm --httpproxy 10.9.129.232 --httpport 3128
+  Retrieving http://yum.puppet.com/puppet6-release-el-6.noarch.rpm
+  curl: (22) The requested URL returned error: 503 Service Unavailable
+  error: skipping http://yum.puppet.com/puppet6-release-el-6.noarch.rpm - transfer failed
+```
+
+It only seems to happen on CentOS 6, not CentOS 7. Workaround was just to unset
+`$BEAKER_PACKAGE_PROXY`.
 
 ### Release
 

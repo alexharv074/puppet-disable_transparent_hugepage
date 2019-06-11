@@ -3,7 +3,7 @@
 # @example Basic usage
 #   include disable_transparent_hugepage
 #
-# @see https://docs.mongodb.org/manual/tutorial/transparent-huge-pages/
+# @see https://docs.mongodb.com/manual/tutorial/transparent-huge-pages/
 #
 class disable_transparent_hugepage {
 
