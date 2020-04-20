@@ -15,7 +15,7 @@
 
 ## Overview
 
-This module disables Transparent Hugepages (THP) on Linux platforms as required by applications such as MongoDB and Redis. The procedure is based on recommendations published at [mongodb.org](https://docs.mongodb.org/manual/tutorial/transparent-huge-pages/).
+This module disables Transparent Hugepages (THP) on Linux platforms as required by applications such as MongoDB and Redis.  The procedure is based on recommendations published at [mongodb.org](https://docs.mongodb.org/manual/tutorial/transparent-huge-pages/).
 
 The module changes the `/sys/kernel/mm/transparent_hugepage/enabled` and `/sys/kernel/mm/transparent_hugepage/defrag` settings, adds an init service to ensure the changes persist across reboots, and if applicable, configures tuned.
 
@@ -52,26 +52,7 @@ bundle exec rake spec
 
 To run the acceptance tests:
 
-Puppet 6.4.2:
-
-~~~ text
-export BEAKER_PUPPET_COLLECTION=puppet6
-export BEAKER_PUPPET_INSTALL_VERSION=6.4.2
-~~~
-
-Puppet 5.5.1:
-
-~~~ text
-export BEAKER_PUPPET_COLLECTION=puppet5
-export BEAKER_PUPPET_INSTALL_VERSION=5.5.1
-~~~
-
-Then:
-
-~~~ text
-ipaddr=$(ifconfig en0 | awk '$1 == "inet" {print $2}')
-export BEAKER_PACKAGE_PROXY=http://${ipaddr}:3128/
-~~~
+To run the acceptance tests:
 
 ~~~ text
 BEAKER_set=centos-66-x64 bundle exec rake spec/acceptance
@@ -79,22 +60,6 @@ BEAKER_set=centos-72-x64 bundle exec rake spec/acceptance
 ~~~
 
 etc.
-
-### Note about CentOS 6
-
-At the time of writing (11 June 2019) I found that Beaker 4 failed
-to install Puppet if I set the `$BEAKER_PACKAGE_PROXY` variable,
-with this message:
-
-```text
-centos-66-x64 15:56:56$ rpm --replacepkgs -Uvh http://yum.puppet.com/puppet6-release-el-6.noarch.rpm --httpproxy 10.9.129.232 --httpport 3128
-  Retrieving http://yum.puppet.com/puppet6-release-el-6.noarch.rpm
-  curl: (22) The requested URL returned error: 503 Service Unavailable
-  error: skipping http://yum.puppet.com/puppet6-release-el-6.noarch.rpm - transfer failed
-```
-
-It only seems to happen on CentOS 6, not CentOS 7. Workaround was just to unset
-`$BEAKER_PACKAGE_PROXY`.
 
 ### Release
 
