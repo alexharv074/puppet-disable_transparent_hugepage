@@ -34,7 +34,7 @@ class disable_transparent_hugepage {
     $profile_name = 'custom'
 
     case $major {
-      '7': {
+      '7','8': {
         file { "/etc/tuned/$profile_name":
           ensure => directory,
         }
