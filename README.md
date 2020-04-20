@@ -73,13 +73,7 @@ export BLACKSMITH_FORGE_USERNAME=alexharvey
 export BLACKSMITH_FORGE_PASSWORD=xxxxxxxxx
 ~~~
 
-Build the module:
-
-~~~ text
-bundle exec rake build
-~~~
-
-Push to Forge:
+Build the module and push to Forge:
 
 ~~~ text
 bundle exec rake module:push
