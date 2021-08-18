@@ -26,10 +26,10 @@ class disable_transparent_hugepage {
 
   if ($family == 'RedHat') {
 
-    package { 'tuned':
-      ensure => installed,
+    ensure_packages('tuned', {
+      ensure => present,
       before => Exec['enable-tuned-profile'],
-    }
+    })
 
     $profile_name = 'custom'
 
